@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>Stegman Labs</title>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<link rel="icon" 
+      type="image/png" 
+      href="/images/wdrawfav.png">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+<style>
+html{
+display:none;
+}
+body
+{
+padding-top:50px;
+background-image:url('/images/paper.png');
+background-repeat:repeat;
+text-align:center;
+}
+h1 {
+font-family: 'Open Sans', sans-serif;
+font-weight: 300;
+font-size:64px;
+margin:0;
+padding:0;
+}
+p{
+font-family: 'Open Sans', sans-serif;
+}
+h3 {
+font-family: 'Open Sans', sans-serif;
+font-weight: 300;
+}
+.container {
+    display:none;
+}
+canvas{
+-moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+display:inline-block;
+margin:5px;
+}
+.home{
+display:inline-block;
+position:absolute;
+top:15;
+left:15;
+cursor:pointer;
+font-size:150%;
+transition: all 0.5s ease;
+font-family: 'Open Sans', sans-serif;
+}
+.home:hover{
+font-size:200%;
+}
+</style>
+</head>
+<body>
+<h1>wDraw</h1>
+<h3>draw with your webcam</h3>
+<p>(1) Hold up an object with a distinct color<br/>(2) Click it<br/>(3) Start moving it to draw</p>
+<P>Frames update once every 300 ms</P>
+<span style="display:inline-block;">
+<canvas id="draw" width="1" height="1" style="border:1px dashed gray; -webkit-border-radius:15px;"></canvas>
+<canvas id="c" width="1" height="1" style="border:1px solid gray; -webkit-border-radius:15px;"></canvas>
+</span>
+
+<div class="container">
+    <video autoplay="true" id="videoElement">
+    </video>
+</div>
+<div style="display:none;">
+<div id="status"></div>
+<div id="tracking"></div>
+<div id="loc"></div>
+</div>
+<span class="home" onclick="home();">Home</span>
+<script src="myScript.js">
+</script>
+<script>
+window.onload = function(){
+$("html").fadeIn(500);
+}
+function home(){
+	$("html").fadeOut(500, function () {
+		location.href='/index.html';
+	});
+}
+</script>
+</body>
+</html>
